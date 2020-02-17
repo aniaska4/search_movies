@@ -5,7 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "make:component": "vue-cli-service make:component",
+    "make:directive": "vue-cli-service make:directive",
+    "make:mixin": "vue-cli-service make:mixin",
+    "make:view": "vue-cli-service make:view"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -21,9 +25,11 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.13.1",
+    "pluralize": "^8.0.0",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.2",
+    "vue-cli-plugin-vuetify-cli": "~0.1.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
