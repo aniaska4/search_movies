@@ -15,11 +15,13 @@ export default new VueRouter({
         path: '/movie/:id',
         name: 'Movie',
         props: true,
+        mode: 'history',
         component: Movie
       },
       {
         path: '/search/:name',
         name: 'SearchMovie',
+        mode: 'history',
         props: true,
         component: SearchMovie
       }
