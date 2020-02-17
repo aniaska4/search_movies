@@ -2,7 +2,7 @@
   .mainBox
     .container
       .movieLists
-        .movieLists__movie(v-for="item in allMovies" :key="item.title")
+        .movieLists__movie(v-for="item in allMovies" :key="item.imdbID" @click="movie(item.imdbID)")
           .movieLists__movie-img
             img(:src="item.Poster")
           .movieLists__movie__details
@@ -31,6 +31,11 @@ export default {
     .catch(error => {
       console.log(error)
     })
+},
+methods: {
+  movie(id){
+    this.$router.push('/movie/' + id)
+  }
 }
 }
 </script>
