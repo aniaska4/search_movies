@@ -9,7 +9,7 @@ export default new VueRouter({
     {
         path: '/',
         name: 'LatestMovie',
-      component: LatestMovie
+        component: LatestMovie
     },
     {
         path: '/movie/:id',

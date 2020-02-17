@@ -54,6 +54,7 @@ methods: {
 
 .movieLists__movie{
   margin: 10px;
+  cursor: pointer
 }
 
 img{
