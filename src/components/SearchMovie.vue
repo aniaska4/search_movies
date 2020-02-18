@@ -2,7 +2,7 @@
   .mainBox
     .container
       .movieLists
-        .movieLists__movie(v-for="item in allMovies" :key="item.imdbID" @click="showMovie")
+        .movieLists__movie(v-for="item in allMovies" :key="item.imdbID" @click="showMovie(item.imdbID)")
           .movieLists__movie-img
             img(:src="item.Poster")
           .movieLists__movie__details
@@ -19,24 +19,24 @@ export default {
   data() {
     return {
       allMovies: [],
-      idMovies: ''
+      idMovies: '',      
     }
   },
   mounted () {
   axios
-    .get('http://www.omdbapi.com/?s=' + this.name + '&apikey=8d840397&page=1&type=movie&Content-Type=application/json')
+    .get('http://www.omdbapi.com/?apikey=8d840397&Content-Type=application/json' + '&s=' + this.name)
     .then(response => {
       console.log(response)
       this.allMovies = response.data.Search
-      this.idMovies = response.data.imdbID
+      this.idMovies = response.data.Search.imdbID
     })
     .catch(error => {
       console.log(error)
     })
 },
 methods: {
-  showMovie(){
-    this.$router.push('/movie/' + this.idMovies)
+  showMovie(id){
+    this.$router.push('/movie/' + id)
   }
 }
 }
