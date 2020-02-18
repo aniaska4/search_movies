@@ -14,7 +14,8 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'Movie',
+    name: 'Movie',    
+    props: ['id'],
     data() {
         return{
             movieDetails: [],
@@ -24,12 +25,13 @@ export default {
     },
     mounted(){
         axios
-            .get('http://www.omdbapi.com/?apikey=8d840397&i=' + this.idMovies + '&Content-Type=application/json')
+            .get('http://www.omdbapi.com/?apikey=b76b385c&i=' + this.id  + '&Content-Type=application/json')
             .then(response => {
                 console.log(response.data)
                 this.movieDetails = response
                 this.idMovies = response.data.imdbID
                 console.log(response.data.imdbID)
+                console.log(this.id)
             })
             .catch(error => {
                 console.log(error)
