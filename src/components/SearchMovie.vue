@@ -16,29 +16,25 @@ import axios from 'axios'
 export default {
     props: ['name'],
     name: 'LatestMovie',
-  data() {
-    return {
-      allMovies: [],
-      idMovies: '',      
+    data() {
+      return {
+        allMovies: [],      
+      }
+    },
+    mounted () {
+    axios
+      .get('http://www.omdbapi.com/?apikey=8d840397&Content-Type=application/json' + '&s=' + this.name)
+      .then(response => {
+        this.allMovies = response.data.Search
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
+    methods: {
+      showMovie(id){
+        this.$router.push('/movie/' + id)
+      }
     }
-  },
-  mounted () {
-  axios
-    .get('http://www.omdbapi.com/?apikey=8d840397&Content-Type=application/json' + '&s=' + this.name)
-    .then(response => {
-      console.log(response)
-      this.allMovies = response.data.Search
-      this.idMovies = response.data.Search.imdbID
-    })
-    .catch(error => {
-      console.log(error)
-    })
-},
-methods: {
-  showMovie(id){
-    this.$router.push('/movie/' + id)
-  }
 }
-}
-</script>
 </script>
